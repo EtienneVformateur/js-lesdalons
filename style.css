@@ -5,7 +5,13 @@ body {
   background: whitesmoke;
 }
 
+.app{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .card {
+  position:relative;
   padding: 20px;
   border-radius: 3px;
   box-shadow: 3px 3px 5px;
@@ -17,11 +23,27 @@ body {
 }
 
 img {
-  border-radius: 20px;
+  border-radius: 200px;
+  box-shadow: 3px 3px 5px;
 }
 
 .email {
   display: block;
   color: rgba(0, 0, 0, 0.348);
   font-weight: 700;
+}
+
+i{
+    position:absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2rem;
+}
+
+.male{
+    color:cornflowerblue;
+}
+
+.female{
+    color:pink
 }
