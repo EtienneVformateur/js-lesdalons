@@ -17,7 +17,21 @@ function displayUsers(users){
     //     console.log(users[index].name);  
     // }
     // users.map((user) => console.log(user.name));
-    users.map((user) => 
+    console.log(users[0]);
+    users
+    .sort((a, b) => {
+        const today = new Date();
+        const aRegistered = new Date(a.registered.date);
+        const bRegistered = new Date(b.registered.date);
+
+        const aDiff = today - aRegistered;
+        const bDiff = today - bRegistered;
+
+        return bDiff - aDiff;
+
+    })
+    .filter((u) => u.gender === 'female' && u.dob.age < 30)
+    .map((user) => 
     {
         // console.log(user);
         const card = document.createElement('div');
@@ -54,6 +68,15 @@ function displayUsers(users){
         email.className = 'email';
         email.textContent = user.email;
         details.appendChild(email);
+
+        const registered = document.createElement('div');
+        registered.className = 'registered';
+        const dateRegistered = new Date(user.registered.date);
+        const today = new Date();
+        const dateDiff = today - dateRegistered; // en milliseconds
+
+        registered.textContent = `Inscrit depuis ${Math.floor(dateDiff/(1000*60*60*24))} jours`;
+        details.appendChild(registered);
 
         card.appendChild(details);
         
